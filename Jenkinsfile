@@ -24,4 +24,12 @@ pipeline{
             }
         }
     }
+    post {
+        always {
+            emailext body: 'A Test EMail', 
+            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], 
+            subject: 'Test',
+            to: 'datns1610@gmail.com'
+        }
+    }
 }
