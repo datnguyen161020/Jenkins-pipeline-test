@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://minhlq-0928.github.io/deploy-github/",
+  "homepage": "https://github.com/datnguyen1909/Jenkins-pipeline-test.git",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
