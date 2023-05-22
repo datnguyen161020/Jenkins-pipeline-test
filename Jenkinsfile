@@ -12,6 +12,7 @@ pipeline{
         stage('Test') {
             steps{
                 echo 'test application'
+                sh 'npm run lint'
             }
         }
         stage ('Deploy') {
@@ -19,7 +20,6 @@ pipeline{
                 echo 'Deploy application'
                 sh 'git config --global user.email "datns1610@gmail.com"'
                 sh 'git config --global user.name "Nguyen Duy Dat"'
-                sh 'git init'
                 sh 'npm run deploy'
             }
         }
