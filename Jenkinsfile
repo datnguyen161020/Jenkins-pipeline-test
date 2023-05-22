@@ -17,6 +17,8 @@ pipeline{
         stage ('Deploy') {
             steps{
                 echo 'Deploy application'
+                sh 'git init'
+                sh 'git branch gh-pages'
                 sh 'npm run deploy'
             }
         }
