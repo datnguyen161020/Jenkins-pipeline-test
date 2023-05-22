@@ -17,8 +17,9 @@ pipeline{
         stage ('Deploy') {
             steps{
                 echo 'Deploy application'
+                sh 'git config --global user.email "datns1610@gmail.com"'
+                sh 'git config --global user.name "Nguyen Duy Dat"'
                 sh 'git init'
-                sh 'git branch gh-pages'
                 sh 'npm run deploy'
             }
         }
