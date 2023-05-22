@@ -4,6 +4,8 @@ pipeline{
         stage('Build') {
             steps{
                 echo 'build application'
+                sh 'npm install'
+                sh 'npx next build'
             }
         }
         stage('Test') {
@@ -14,6 +16,7 @@ pipeline{
         stage ('Deploy') {
             steps{
                 echo 'Deploy application'
+                sh 'npm run deploy'
             }
         }
     }
