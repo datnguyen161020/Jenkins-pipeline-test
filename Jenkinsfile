@@ -31,11 +31,11 @@ pipeline{
         success {  
         emailext body: 'Build SUCCESS', 
         recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], 
-        subject: 'Test',
+        subject: 'Test pipeline',
         to: 'datns1610@gmail.com'  
         }  
         failure { 
-        emailext body: 'Build FAIL', 
+        emailext body: 'Build Fail', 
         recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], 
         subject: 'Test',
         to: 'datns1610@gmail.com' 
