@@ -18,9 +18,7 @@ pipeline{
         stage ('Deploy') {
             steps{
                 echo 'Deploy application'
-                sh 'git config --global user.email "datns1610@gmail.com"'
-                sh 'git config --global user.name "Nguyen Duy Dat"'
-                sh 'npm run deploy'
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'window', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cp package.json package-lock.json', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'package.json')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
