@@ -18,7 +18,7 @@ pipeline{
         stage ('Deploy') {
             steps{
                 echo 'Deploy application'
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'window', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'exit scp admin@192.168.0.102 package.json', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'package.json')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])            
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'window', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'echo "success" > log_123.txt', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/Desktop', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'package.json')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
