@@ -15,6 +15,11 @@ pipeline{
                 sh 'npm run lint'
             }
         }
+        stage('Creating Artifact'){
+            steps{
+                archiveArtifacts artifacts: '**', followSymlinks: false
+            }
+        }
         stage ('Deploy') {
             steps{
                 echo 'Deploy application'
