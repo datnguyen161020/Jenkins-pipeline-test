@@ -18,7 +18,9 @@ pipeline{
         stage ('Deploy') {
             steps{
                 echo 'Deploy application'
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'window', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'echo "success" > log_123.txt', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'C:\\Users\\Admin', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'package.json')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'window', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'build', remoteDirectorySDF: false, removePrefix: '/build', sourceFiles: '/build/**/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'window', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'C:\\Windows\\System32\\xcopy.exe /e /K /D /H /Y C:\\Users\\Admin\\deploy\\build "F:\\test"', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])             
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'window', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'C:\\Windows\\System32\\cmd.exe /s /c rmdir /s /q C:\\Users\\Admin\\deploy\\build', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])             
             }
         }
     }
