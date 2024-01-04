@@ -17,7 +17,7 @@ pipeline{
         }
         stage('Creating Artifact'){
             steps{
-                archiveArtifacts artifacts: 'build/*', followSymlinks: false
+                archiveArtifacts artifacts: 'build/**/*', followSymlinks: false
             }
         }
         stage ('Deploy') {
